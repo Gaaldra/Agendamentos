@@ -3,13 +3,14 @@
 public class Address
 {
     public int ID { get; set; }
-    public string Street { get; set; }
-    public string Number { get; set; }
+    public string Street { get; set; } = String.Empty;
+    public string Number { get; set; } = String.Empty;
     public string? Complement { get; set; }
-    public string Neighborhood { get; set; }
-    public string City { get; set; }
-    public string ZIPCode { get; set; }
+    public string Neighborhood { get; set; } = String.Empty;
+    public string City { get; set; } = String.Empty;
+    public string ZIPCode { get; set; } = String.Empty;
 
+    public Address() { }
     public Address(string street, string number, string neighborhood, string city, string zipCode)
     {
         this.Street = street;

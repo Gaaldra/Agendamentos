@@ -27,7 +27,7 @@
       "applicationUrl": "https://localhost:7134;http://localhost:5272",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "MYSQL_URI": "server=localhost;user=root;password=;database=agendamentos"
+        "MYSQL_URI": "server=localhost;uid=root;pwd=;database=agendamentos"
       }
     },
     "IIS Express": {

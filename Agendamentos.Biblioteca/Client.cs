@@ -14,6 +14,4 @@ public class Client : User
     {
         this.CanReceiveEmail = canReceiveEmail;
     }
-
 }
-// github.com/Gaaldra/modelos

@@ -2,7 +2,7 @@
 
 public class Service
 {
-    public int Id { get; set; }
+    public int ID { get; set; }
     public string Name { get; set; }
 
     public Service(string name)
@@ -12,6 +12,6 @@ public class Service
 
     public Service(string name, int id) : this(name)
     {
-        this.Id = id;
+        this.ID = id;
     }
 }

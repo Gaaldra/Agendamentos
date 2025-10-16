@@ -6,10 +6,12 @@ namespace Agendamentos.API.Controllers;
 
 [Route("[controller]")] // Anotação
 [ApiController]
-public class ClientController : ControllerBase
+public class ClientController(APIContext context) : ControllerBase
 {
+    private APIContext _context = context;
+
     [HttpPost]
-    public IActionResult RegisterClient([FromBody]Client request)
+    public IActionResult RegisterClient([FromBody] Client request)
     {
         return Created();
     }
