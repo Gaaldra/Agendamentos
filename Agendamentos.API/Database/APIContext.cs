@@ -33,8 +33,12 @@ public class APIContext(DbContextOptions<APIContext> optionsBuilder) : DbContext
         // Configurar as colunas não nulas
 
         // Configurar chaves estrangeiras
-        modelBuilder.Entity<Employee>().HasOne(e => e.Role)
-            .WithMany(r => r.Employees).HasForeignKey(e => e.RoleID);
+        modelBuilder.Entity<Employee>().HasOne(e => e.Role).WithMany(r => r.Employees).HasForeignKey(e => e.RoleID);
 
+        modelBuilder.Entity<Appointment>().HasOne(a => a.Client).WithMany(c => c.Appointments).HasForeignKey(a => a.ClientID);
+
+        modelBuilder.Entity<Appointment>().HasOne(a => a.Employee).WithMany(e => e.Appointments).HasForeignKey(a => a.EmployeeID);
+
+        modelBuilder.Entity<Appointment>().HasOne(a => a.Service).WithMany(s => s.Appointments).HasForeignKey(a => a.ServiceID);
     }
 }

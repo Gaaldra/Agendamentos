@@ -2,9 +2,13 @@
 
 public class Client : User
 {
+    // Propriedades
     public bool CanReceiveEmail { get; set; } = false;
+    public List<Appointment> Appointments { get; set; }
 
+    // Construtores
     public Client() : base() { }
+        
     public Client(string name, string email, string phone, DateOnly birth, bool canReceiveEmail) : base(name, email, phone, birth)
     {
         this.CanReceiveEmail = canReceiveEmail;

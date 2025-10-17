@@ -6,7 +6,7 @@ public class Appointment
     public int ClientID { get; set; }
     public int EmployeeID { get; set; }
     public int ServiceID { get; set; }
-    public DateTime ScheduledAt {  get; set; }
+    public DateTime ScheduledAt { get; set; }
 
     public Client Client { get; set; }
     public Employee Employee { get; set; }

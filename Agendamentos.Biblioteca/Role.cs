@@ -6,6 +6,7 @@ public class Role
     public string Name { get; private set; }
     public List<Employee> Employees { get; set; }
 
+    public Role() { }
     public Role(string name)
     {
         this.Name = name;
