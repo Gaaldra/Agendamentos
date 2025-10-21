@@ -4,7 +4,7 @@ public class Client : User
 {
     // Propriedades
     public bool CanReceiveEmail { get; set; } = false;
-    public List<Appointment> Appointments { get; set; }
+    public List<Appointment>? Appointments { get; set; }
 
     // Construtores
     public Client() : base() { }

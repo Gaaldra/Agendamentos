@@ -1,6 +1,7 @@
 ﻿using Agendamentos.API.Database;
 using Agendamentos.Biblioteca;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Agendamentos.API.Controllers;
 
@@ -11,17 +12,36 @@ public class ClientController(APIContext context) : ControllerBase
     private APIContext _context = context;
 
     [HttpPost]
-    public IActionResult RegisterClient([FromBody] Client request)
+    public async Task<IActionResult> RegisterClientAsync([FromBody] Client request)
     {
-        return Created();
+        await _context.Clients.AddAsync(request);
+        await _context.SaveChangesAsync();
+        return CreatedAtAction(nameof(GetClientByIdAsync), new { id = request.ID }, request);
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetClientByID(int id)
+    public async Task<IActionResult> GetClientByIdAsync(int id)
     {
-        return Ok(new
-        {
-            Message = id
-        });
+        Client? result = await _context.Clients.FindAsync(id);
+        if (result is null) return NotFound("Cliente não foi encontrado!");
+        return Ok(result);
     }
+
+    [HttpPut]
+    public async Task<IActionResult> UpdateClientAsync([FromBody] Client request)
+    {
+        if (request.ID == null) return BadRequest();
+
+        Client? result = await _context.Clients.FindAsync(request.ID);
+        if (result == null) return NotFound();
+
+        _context.Clients.Update(request);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+    // Crie os metodos abaixo com melhor retorno aplicavel
+    // HTTP PUT - 200 Ok | 204 No Content UpdateClientAsync()
+    // HTTP PATCH -  204 No Content | 200 Ok ToggleEmailFromClientIdAsync
+    // DELETE - 204 No Content DeleteClienteByIdAsync()
 }
