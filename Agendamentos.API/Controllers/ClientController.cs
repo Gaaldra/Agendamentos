@@ -30,7 +30,7 @@ public class ClientController(APIContext context) : ControllerBase
     [HttpPut]
     public async Task<IActionResult> UpdateClientAsync([FromBody] Client request)
     {
-        if (request.ID == null) return BadRequest();
+        if (request.ID <= 0) return BadRequest();
 
         Client? result = await _context.Clients.FindAsync(request.ID);
         if (result == null) return NotFound();
@@ -40,8 +40,16 @@ public class ClientController(APIContext context) : ControllerBase
 
         return NoContent();
     }
-    // Crie os metodos abaixo com melhor retorno aplicavel
-    // HTTP PUT - 200 Ok | 204 No Content UpdateClientAsync()
-    // HTTP PATCH -  204 No Content | 200 Ok ToggleEmailFromClientIdAsync
-    // DELETE - 204 No Content DeleteClienteByIdAsync()
+
+    [HttpPatch("{id}")]
+    public async Task<IActionResult> ToggleEmailFromClientIdAsync(int id)
+    {
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteClienteByIdAsync(int id)
+    {
+        return NoContent();
+    }
 }
