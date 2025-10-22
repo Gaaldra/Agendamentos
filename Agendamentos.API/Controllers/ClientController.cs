@@ -44,12 +44,20 @@ public class ClientController(APIContext context) : ControllerBase
     [HttpPatch("{id}")]
     public async Task<IActionResult> ToggleEmailFromClientIdAsync(int id)
     {
+        Client? result = await _context.Clients.FindAsync(id);
+        if (result == null) return NotFound();
+        result.CanReceiveEmail = !result.CanReceiveEmail;
+        await _context.SaveChangesAsync();
         return NoContent();
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteClienteByIdAsync(int id)
+    public async Task<IActionResult> DeleteClientByIdAsync(int id)
     {
+        Client? client = await _context.Clients.FindAsync(id);
+        if (client == null) return NotFound();
+        _context.Remove(client);
+        await _context.SaveChangesAsync();
         return NoContent();
     }
 }
