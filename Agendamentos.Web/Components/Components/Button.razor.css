@@ -1,0 +1,24 @@
+﻿/* Referencia por tag */
+button {
+    /* Aparencia */
+    width: 340px; /* Largura do botão */
+    height: 54px; /* Altura do botão */
+    background-color: #B8952E; /* Cor do botão */
+    /* Fonte */
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* Bordas */
+    border-radius: 8px; /* Arredondamento das bordas */
+    border: 0px;
+}
+
+/* Daqui pra baixo nao copia */
+.botao{
+    /* Referencia por classe*/
+}
+
+/* Referencia por ID */
+#botao_agendar{
+
+}
