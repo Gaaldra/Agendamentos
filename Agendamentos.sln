@@ -14,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agendamentos.API", "Agendam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agendamentos.Biblioteca", "Agendamentos.Biblioteca\Agendamentos.Biblioteca.csproj", "{E9B69C65-38F1-42B0-9EFE-AC22EBF195B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agendamentos.Web", "Agendamentos.Web\Agendamentos.Web.csproj", "{3073D768-F805-40CA-9773-8CA081CD02CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agendamentos.Web", "Agendamentos.Web\Agendamentos.Web.csproj", "{3073D768-F805-40CA-9773-8CA081CD02CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
